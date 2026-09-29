@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صدقة جارية | الفقيد محمد حسين بعليص</title>
+    <!-- خطوط جوجل: Tajawal & Amiri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f7f9f7;
+            --card-bg: #ffffff;
+            --primary-color: #2c4a3e;
+            --accent-color: #c5a059;
+            --text-main: #2b2b2b;
+            --text-muted: #666666;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e352b 0%, var(--primary-color) 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 20px 50px;
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .quran-ayah {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            line-height: 2;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 25px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* العدادات التفاعلية */
+        .duaa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .duaa-card {
+            background: var(--card-bg);
+            padding: 25px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .duaa-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+        }
+
+        .duaa-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .counter-btn {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .counter-btn:active {
+            transform: scale(0.97);
+            background-color: #1e352b;
+        }
+
+        .badge {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* مشغل الصوت */
+        .audio-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .audio-info h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .audio-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        audio {
+            height: 40px;
+            outline: none;
+            border-radius: 20px;
+        }
+
+        /* أدوات التفاعل والمشاركة */
+        .action-box {
+            background: linear-gradient(135deg, #ffffff 0%, #f4f7f5 100%);
+            border: 1px dashed var(--accent-color);
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .share-btn {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.7rem; }
+            .quran-ayah { font-size: 1.1rem; }
+            .audio-card { flex-direction: column; text-align: center; }
+            audio { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="quran-ayah">
+            ﴿ يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ۝ ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً ۝ فَادْخُلِي فِي عِبَادِي ۝ وَادْخُلِي جَنَّتِي ﴾
+        </div>
+        <h1>المغفور له بإذن الله<br>محمد حسين بعليص</h1>
+        <p>اللهم اجعل هذا الموقع صدقة جارية له، واغفر له وارحمه واجمعنا به في جنات النعيم.</p>
+    </header>
+
+    <div class="container">
+
+        <!-- العدادات التفاعلية للأدعية -->
+        <h2 class="section-title">شارِك بالدعاء والاستغفار</h2>
+        <div class="duaa-grid">
+            <div class="duaa-card">
+                <div class="duaa-text">اللهم اغفر له وارحمه وعافه واعف عنه</div>
+                <button class="counter-btn" onclick="increment('d1')">
+                    <span>دعوتم له</span>
+                    <span class="badge" id="d1">0</span>
+                </button>
+            </div>
+
+            <div class="duaa-card">
+                <div class="duaa-text">اللهم اجعل قبره روضة من رياض الجنة</div>
+                <button class="counter-btn" onclick="increment('d2')">
+                    <span>دعوتم له</span>
+                    <span class="badge" id="d2">0</span>
+                </button>
+            </div>
+
+            <div class="duaa-card">
+                <div class="duaa-text">اللهم أبدله داراً خيراً من داره وأهلاً خيراً من أهله</div>
+                <button class="counter-btn" onclick="increment('d3')">
+                    <span>دعوتم له</span>
+                    <span class="badge" id="d3">0</span>
+                </button>
+            </div>
+
+            <div class="duaa-card">
+                <div class="duaa-text">لا إله إلا الله وحده لا شريك له، أستغفر الله للفقيد</div>
+                <button class="counter-btn" onclick="increment('d4')">
+                    <span>دعوتم له</span>
+                    <span class="badge" id="d4">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- تلاوات قرآنية خاشعة -->
+        <h2 class="section-title">تلاوات بنية الأجر للمتوفى</h2>
+        
+        <div class="audio-card">
+            <div class="audio-info">
+                <h4>سورة يس</h4>
+                <p>القارئ: مشاري راشد العفاسي</p>
+            </div>
+            <audio controls preload="none">
+                <source src="https://server8.mp3quran.net/afs/036.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="audio-card">
+            <div class="audio-info">
+                <h4>سورة الملك</h4>
+                <p>القارئ: عبد الباسط عبد الصمد</p>
+            </div>
+            <audio controls preload="none">
+                <source src="https://server7.mp3quran.net/basit/067.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- مشاركة الأجر -->
+        <div class="action-box">
+            <h3>ساهم في نشر هذا الموقع</h3>
+            <p>الدال على الخير كفاعله، شارك رابط الموقع مع الأهل والأصدقاء ليزداد الأجر والدعاء للفقيد.</p>
+            <a id="whatsappShare" href="#" target="_blank" class="share-btn">
+                مشاركة عبر واتساب
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>اللهم اجعل هذا العمل خالصاً لوجهك الكريم وصدقة جارية عن روح الفقيد محمد حسين بعليص.</p>
+    </footer>
+
+    <script>
+        // تحميل الأعداد المخزنة في جهاز الزائر عند فتح الصفحة
+        const keys = ['d1', 'd2', 'd3', 'd4'];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            keys.forEach(key => {
+                let saved = localStorage.getItem('baelis_' + key) || 0;
+                document.getElementById(key).innerText = saved;
+            });
+
+            // إعداد رابط الواتساب تلقائياً
+            const pageUrl = window.location.href;
+            const message = encodeURIComponent(`نسألكم الدعاء والقراءة للفقيد الشاب / محمد حسين بعليص (صدقة جارية):\n${pageUrl}`);
+            document.getElementById('whatsappShare').href = `https://api.whatsapp.com/send?text=${message}`;
+        });
+
+        // زيادة العداد وتخزينه في LocalStorage
+        function increment(id) {
+            let badge = document.getElementById(id);
+            let count = parseInt(badge.innerText) + 1;
+            badge.innerText = count;
+            localStorage.setItem('baelis_' + id, count);
+        }
+    </script>
+</body>
+</html>
